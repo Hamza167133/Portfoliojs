@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name – Web Developer</title>
+  <meta name="description" content="Beginner web developer portfolio – HTML, CSS, JavaScript, PHP, MySQL projects." />
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --text: #e5e7eb;      /* gray-200 */
+      --muted: #94a3b8;     /* slate-400 */
+      --accent: #22c55e;    /* green-500 */
+      --accent-2: #38bdf8;  /* sky-400 */
+      --border: #1f2937;    /* gray-800 */
+      --chip: #0b1220;      /* slightly darker for chips */
+    }
+
+    /* Reset */
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; background: linear-gradient(180deg, #0b1220 0%, var(--bg) 35%, #0b1220 100%); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Layout */
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    section { padding: 64px 0; border-top: 1px solid var(--border); }
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(15,23,42,0.6); border-bottom: 1px solid var(--border); z-index: 50; }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+    .brand { font-weight: 700; letter-spacing: 0.5px; }
+
+    .nav-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .nav-links a { padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 14px; color: var(--muted); }
+    .nav-links a:hover { border-color: var(--accent); color: var(--text); }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: center; padding: 64px 0; }
+    .title { font-size: clamp(28px, 4vw, 44px); line-height: 1.2; margin: 8px 0 12px; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 2vw, 18px); }
+    .cta { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+    .btn { padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #16a34a); color: #071b0c; border-color: transparent; }
+    .btn.secondary { background: #0a0f1e; }
+    .btn:hover { transform: translateY(-1px); transition: 0.15s ease; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; border: 1px solid var(--border); color: var(--muted); }
+
+    /* Panels */
+    .panel { background: radial-gradient(1200px 600px at 10% -20%, rgba(56,189,248,0.08), transparent), radial-gradient(1200px 600px at 90% 120%, rgba(34,197,94,0.08), transparent), var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+
+    /* Grid */
+    .grid { display: grid; gap: 16px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 860px){ .hero { grid-template-columns: 1fr; } .grid-3{ grid-template-columns: 1fr; } .grid-2{ grid-template-columns: 1fr; } }
+
+    /* Section titles */
+    .section-title { font-size: 22px; margin-bottom: 16px; }
+    .muted { color: var(--muted); }
+
+    /* Chips */
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { background: var(--chip); border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 13px; }
+
+    /* Cards */
+    .card { background: #0b1220; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+    .card .body { padding: 14px; display: grid; gap: 8px; }
+    .card .title { font-size: 18px; margin: 4px 0; }
+    .card .meta { font-size: 12px; color: var(--muted); }
+    .card .actions { margin-top: 10px; display: flex; gap: 10px; }
+
+    /* Footer */
+    footer { text-align: center; padding: 30px 0 60px; color: var(--muted); }
+
+    /* Contact form */
+    form { display: grid; gap: 10px; }
+    input, textarea { background: #0b1220; border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 10px; font: inherit; }
+    textarea { min-height: 120px; resize: vertical; }
+    label { font-size: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <!-- HEADER  -->
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand">Your Name</div>
+        <div class="nav-links" role="navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="C:\Users\dell\OneDrive\Desktop\learn\Portflio\cv.pdf" download>Download CV</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!--  HERO -->
+  <div class="container">
+    <section class="hero" aria-label="Intro">
+      <div>
+        <span class="badge">Beginner Web Developer</span>
+        <h1 class="title">Hi, I’m <span style="color:var(--accent-2)">Hamza Iftikhar</span> — I build simple, clean web apps.</h1>
+        <p class="subtitle">I’m learning and improving every day. I use HTML, CSS, JavaScript, PHP and MySQL to create useful projects. I’m seeking an internship or junior role to grow with a team.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See My Projects</a>
+          <a class="btn secondary" href="mailto:hamzaiftikhar951@email.com">Email Me</a>
+          <a class="btn" href="https://github.com/Hamza167133" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+      <div class="panel" aria-label="Quick Facts">
+        <div class="grid grid-2">
+          <div>
+            <div class="muted">Based in</div>
+            <div>Lahore, Pakistan</div>
+          </div>
+          <div>
+            <div class="muted">Open to</div>
+            <div>Internships · Freelance · Remote</div>
+          </div>
+          <div>
+            <div class="muted">Email</div>
+            <div><a href="mailto:hamzaiftikhar951@email.com">hamzaiftikhar951@email.com</a></div>
+          </div>
+          <div>
+            <div class="muted">Languages</div>
+            <div>English (Basic), Urdu, Punjabi</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="container" id="about">
+    <section>
+      <h2 class="section-title">About Me</h2>
+      <div class="panel">
+        <p>
+          I’m a beginner web developer focused on building solid foundations in front‑end and back‑end.
+          I enjoy turning ideas into simple, working products. My goal is to join a team where I can
+          learn fast, contribute to real projects, and grow into a reliable developer.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="container" id="skills">
+    <section>
+      <h2 class="section-title">Skills</h2>
+      <div class="panel">
+        <div class="chips" aria-label="Skills list">
+          <!-- Add or remove skills as needed -->
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Bootstrap</span>
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">AJAX (basic)</span>
+          <span class="chip">Git & GitHub</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="container" id="projects">
+    <section>
+      <h2 class="section-title">Projects</h2>
+      <div class="grid grid-3">
+        <!-- Project Card 1 -->
+        <article class="card" aria-labelledby="p1-title">
+          <div class="body">
+            <div class="meta">PHP · MySQL</div>
+            <h3 id="p1-title" class="title">Student Registration System</h3>
+            <p>Register students, assign courses, and view enrollments. Simple CRUD with validation.</p>
+            <div class="actions">
+              <a class="btn" href="https://github.com/yourusername/student-registration" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="card" aria-labelledby="p2-title">
+          <div class="body">
+            <div class="meta">HTML · CSS · JS</div>
+            <h3 id="p2-title" class="title">Personal Portfolio Website</h3>
+            <p>Responsive one‑page portfolio with projects, skills, and contact form.</p>
+            <div class="actions">
+              <a class="btn" href="https://github.com/yourusername/portfolio" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="card" aria-labelledby="p3-title">
+          <div class="body">
+            <div class="meta">JavaScript</div>
+            <h3 id="p3-title" class="title">Simple Calculator</h3>
+            <p>Clean UI calculator supporting + − × ÷ and keyboard input.</p>
+            <div class="actions">
+              <a class="btn" href="https://github.com/yourusername/js-calculator" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="container" id="contact">
+    <section>
+      <h2 class="section-title">Contact</h2>
+      <div class="panel">
+        <!-- Simple email form: this uses mailto: so you don't need a backend now -->
+        <form action="mailto:hamzaiftikhar951@email.com" method="post" enctype="text/plain">
+          <div>
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" required />
+          </div>
+          <div>
+            <label for="email">Your Email</label>
+            <input id="email" name="email" type="email" placeholder="Enter your email" required />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+          </div>
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Your Name — Built with HTML, CSS & JS.
+    </div>
+  </footer>
+
+  <script>
+    // Update year in footer automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links (optional, accessible fallback remains)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
